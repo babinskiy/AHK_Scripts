@@ -51,16 +51,21 @@ R := 0
 Return
 
 
-#F4::Send       {Media_Play_Pause}
-#F2::Send       {Media_Prev}
-#F3::Send       {Media_Next}
-
 ; Swith audio outputs
-#F1:: 
+#F1::
     R := R + 1
     SetDefaultEndpoint(DeviceList[Mod(R, DeviceList.Length())+1].ID)
     OSD("Audio output:" . DeviceList[Mod(R, DeviceList.Length())+1].Name)
 
+#F2::Send       {Media_Prev}
+#F3::Send       {Media_Next}
+#F4::Send       {Media_Play_Pause}
+
+NumpadIns::
+    if (GetKeyState("RShift", "P") == 1){
+        Send {Shift down}{Insert}{Shift Up}
+    }
+    Return
 
 SetDefaultEndpoint(DeviceID)
 {

@@ -7,6 +7,11 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 #Include functions.ahk
 
+; Lang codes (https://learn.microsoft.com/en-us/previous-versions/ms957130(v=msdn.10)):
+; 0x0409 - English/US
+; 0x0419 - Russian/Russia
+; 0x0422 - Ukraine
+
 capslock::
 	hwnd := WinExist("A")
 	currKBLayout := GetCurrKeyboard(hwnd)

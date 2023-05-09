@@ -1,10 +1,13 @@
 #Persistent
-; #SingleInstance, Force
+
+; TODO: Add storing configuration in ini file
+; TODO: Add autoconnect on start
+; TODO: Add autoreconnect on connection error
 
 SendMode Input
 SetWorkingDir, %A_ScriptDir%
 
-SSHCommand := "ssh root@165.232.69.229 -D 127.0.0.1:1080 -CnNT"
+SSHCommand := "ssh ubuntu@144.21.32.19 -D 127.0.0.1:1080 -CnNT"
 SSHProcessPID := -1
 
 IconConnected := A_ScriptDir . "\icons\connection_green.ico"
@@ -60,4 +63,3 @@ ScriptExit:
     Gosub, ConnectionStop
     ExitApp, 0
 Return
-
